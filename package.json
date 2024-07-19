@@ -1,0 +1,33 @@
+{
+  "name": "browser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --env-file=.env dist/main.js",
+    "clean": "rm -rf ./dist",
+    "build": "esbuild --bundle --platform=node --format=esm --outfile=./dist/main.js src/main.ts",
+    "lint": "eslint src/*.ts --fix",
+    "//": "NODE OUTPUT IS NOT PRESERVED!",
+    "dev": "run-p dev:*",
+    "dev:tsc": "tsc --watch -noEmit --preserveWatchOutput",
+    "dev:node": "pnpm start --watch --watch-preserve-output",
+    "dev:esbuild": "pnpm run build --watch"
+  },
+  "engines": {
+    "node": ">=v20.6.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tsconfig/node-lts": "^20.1.3",
+    "@types/node": "^20.14.11",
+    "@typescript-eslint/eslint-plugin": "^7.16.1",
+    "@typescript-eslint/parser": "^7.16.1",
+    "esbuild": "^0.23.0",
+    "eslint": "^8.56.0",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.5.3"
+  }
+}
